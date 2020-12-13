@@ -18,13 +18,12 @@ setInterval(dynamicTime, 1000);
 //save function for the saveBtn
 var saveItems = document.getElementById("save");
 
-$("#save").on("click", function (event) {
+$(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    // var scheduleInput = document.getElementById("text-entry1").value.trim();
-    var scheduleInput = document.getElementsByClassName("text-entry").value;
+    var scheduleInput = $(this).siblings(".text-entry").val();
     console.log(scheduleInput);
     var savedItem = [];
-    savedItem = JSON.parse(localStorage.getItem("scheduleInput")) || [];
+    savedItem = JSON.parse(window.localStorage.getItem("scheduleInput")) || [];
     savedItem.push(scheduleInput);
     alert(savedItem);
     localStorage.setItem("savedItem", JSON.stringify(savedItem));
