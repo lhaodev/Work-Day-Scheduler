@@ -21,7 +21,7 @@ var saveItems = document.getElementById("save");
 $("#save").on("click", function (event) {
     event.preventDefault();
     // var scheduleInput = document.getElementById("text-entry1").value.trim();
-    var scheduleInput = document.getElementsByClassName("text-entry1").value;
+    var scheduleInput = document.getElementsByClassName("text-entry").value;
     console.log(scheduleInput);
     var savedItem = [];
     savedItem = JSON.parse(localStorage.getItem("scheduleInput")) || [];
