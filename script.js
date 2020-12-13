@@ -16,12 +16,15 @@ var dynamicTime = function () {
 setInterval(dynamicTime, 1000);
 
 //save function for the saveBtn
-var saveItems = document.getElementById("save");
+
+localStorage.setItem("savedItem", JSON.stringify(savedItem));
 
 $(".saveBtn").on("click", function (event) {
+
     event.preventDefault();
     var scheduleInput = $(this).siblings(".text-entry").val();
     console.log(scheduleInput);
+    var id = $(this).attr('id');
     var savedItem = [];
     savedItem = JSON.parse(window.localStorage.getItem("scheduleInput")) || [];
     savedItem.push(scheduleInput);
