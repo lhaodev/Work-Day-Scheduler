@@ -77,22 +77,29 @@ setInterval(dynamicTime, 1000);
 // });
 
 
-var hourDisplay = $(".calendar-row").attr("data-hour");
-console.log(hourDisplay);
-var calendarRow = $(".calendar-row");
-
-//add style to time blocks to show different color codes
-if (parseInt(hourDisplay) === parseInt(currentHour)) {
-    $(".calendar-row").addClass("present").removeClass("past future");
-}
-else if (parseInt(hourDisplay) < parseInt(currentHour)) {
-    $(".calendar-row").addClass("past").removeClass("present future");
-}
-else if (parseInt(hourDisplay) > parseInt(currentHour)) {
-    $(".calendar-row").addClass("future").removeClass("past present");
+function colorCode() {
+    $(".calendar-row").each(function () {
+        var hourDisplay = $(".calendar-row").attr("data-hour");
+        console.log(hourDisplay);
+        var calendarRow = $(".calendar-row");
+        //add style to time blocks to show different color codes
+        if (parseInt(hourDisplay) === currentHour) {
+            $(".calendar-row").addClass("present").removeClass("past future");
+        }
+        else if (parseInt(hourDisplay) < currentHour) {
+            $(".calendar-row").addClass("past").removeClass("present future");
+        }
+        else if (parseInt(hourDisplay) > currentHour) {
+            $(".calendar-row").addClass("future").removeClass("past present");
+        };
+    });
 };
 
+colorCode();
 
+$(".saveBtn").click(function () {
+    alert($(".calendar-row").attr("data-hour"));
+});
 
 
 
