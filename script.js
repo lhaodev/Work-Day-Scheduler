@@ -77,29 +77,27 @@ setInterval(dynamicTime, 1000);
 // });
 
 
+
 function colorCode() {
     $(".calendar-row").each(function () {
-        var hourDisplay = $(".calendar-row").attr("data-hour");
+        var hourDisplay = $(this).attr("data-hour");
         console.log(hourDisplay);
         var calendarRow = $(".calendar-row");
         //add style to time blocks to show different color codes
-        if (parseInt(hourDisplay) === currentHour) {
-            $(".calendar-row").addClass("present").removeClass("past future");
+        if (parseInt(hourDisplay) == currentHour) {
+            $(this).addClass("present").removeClass("past future");
         }
         else if (parseInt(hourDisplay) < currentHour) {
-            $(".calendar-row").addClass("past").removeClass("present future");
+            $(this).addClass("past").removeClass("present future");
         }
         else if (parseInt(hourDisplay) > currentHour) {
-            $(".calendar-row").addClass("future").removeClass("past present");
+            $(this).addClass("future").removeClass("past present");
         };
     });
 };
 
 colorCode();
 
-$(".saveBtn").click(function () {
-    alert($(".calendar-row").attr("data-hour"));
-});
 
 
 
