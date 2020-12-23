@@ -2,12 +2,13 @@ $(document).ready(function () {
     // listen for save button clicks
 
     $(".saveBtn").on("click", function () {
-        //grabbing the values from HTML
+
+        //grabbing the values from HTML 
+        //John helped me with LocalStorage
         var input = $(this).siblings(".text-entry").val();
         var time = $(this).parent().attr("id");
 
         //put in locolStorage
-
         localStorage.setItem(time, input);
     });
 
@@ -16,6 +17,7 @@ $(document).ready(function () {
 
         var currentHour = moment().hours();
         $(".calendar-row").each(function () {
+            //John helped with split function
             var hourGroup = parseInt($(this).attr("id").split("-")[1]);
             if (hourGroup < currentHour) {
                 $(this).addClass("past");
@@ -38,6 +40,7 @@ $(document).ready(function () {
 
     // print saved data from local storage
 
+    //john helped with LocalStorage function
     $("#hour-9 .text-entry").val(localStorage.getItem("hour-9"));
     $("#hour-10 .text-entry").val(localStorage.getItem("hour-10"));
     $("#hour-11 .text-entry").val(localStorage.getItem("hour-11"));
