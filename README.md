@@ -51,3 +51,5 @@ The following animation demonstrates the application functionality:
 
 ![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
 
+
+## Thanks my tutor John Pendergrass for helping me clear out LocalStorge function and help me clean my HTML
